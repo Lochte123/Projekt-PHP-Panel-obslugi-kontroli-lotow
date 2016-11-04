@@ -1,0 +1,19 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}AppBundle:Registration:register{% endblock %}
+
+{% block body %}
+
+<div style = "color: #F5F5F5">
+    {{ form_start(form) }}
+    {{ form_row(form.username) }}
+    {{ form_row(form.email) }}
+    {{ form_row(form.plainPassword.first) }}
+    {{ form_row(form.plainPassword.second) }}
+</div>
+
+    <button type="submit" style="background: chocolate; color: #ffcc00">REGISTER</button>
+    <button type="button" style="background: #dd4444; color: khaki;" >FORGOTTEN PASSWORD</button>
+    <body background="plane.jpg"></body>
+    {{ form_end(form) }}
+{% endblock %}
