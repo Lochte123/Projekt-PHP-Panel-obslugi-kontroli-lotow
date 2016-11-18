@@ -1,0 +1,105 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Panstwa
+ *
+ * @ORM\Table(name="panstwa")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\PanstwaRepository")
+ */
+class Panstwa
+{
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Nazwa", type="string", length=255)
+     */
+    private $nazwa;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Skrot", type="string", length=255)
+     */
+    private $skrot;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Linie_lotnicze", mappedBy="Panstwa")
+     */
+    protected $linieLotnicze;
+
+    public function __construct()
+    {
+        $this->linieLotnicze = new ArrayCollection();
+    }
+    /**
+     * Get id
+     *
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set nazwa
+     *
+     * @param string $nazwa
+     *
+     * @return Panstwa
+     */
+    public function setNazwa($nazwa)
+    {
+        $this->nazwa = $nazwa;
+
+        return $this;
+    }
+
+    /**
+     * Get nazwa
+     *
+     * @return string
+     */
+    public function getNazwa()
+    {
+        return $this->nazwa;
+    }
+
+    /**
+     * Set skrot
+     *
+     * @param string $skrot
+     *
+     * @return Panstwa
+     */
+    public function setSkrot($skrot)
+    {
+        $this->skrot = $skrot;
+
+        return $this;
+    }
+
+    /**
+     * Get skrot
+     *
+     * @return string
+     */
+    public function getSkrot()
+    {
+        return $this->skrot;
+    }
+}
+

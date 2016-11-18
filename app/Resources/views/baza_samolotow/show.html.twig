@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Baza_samolotow</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ baza_samolotow.id }}</td>
+            </tr>
+            <tr>
+                <th>Marka</th>
+                <td>{{ baza_samolotow.marka }}</td>
+            </tr>
+            <tr>
+                <th>Model</th>
+                <td>{{ baza_samolotow.model }}</td>
+            </tr>
+            <tr>
+                <th>Rocznikprodukcji</th>
+                <td>{{ baza_samolotow.rocznikProdukcji }}</td>
+            </tr>
+            <tr>
+                <th>Pulap</th>
+                <td>{{ baza_samolotow.pulap }}</td>
+            </tr>
+            <tr>
+                <th>Numerrej</th>
+                <td>{{ baza_samolotow.numerRej }}</td>
+            </tr>
+            <tr>
+                <th>Liczbapasazerow</th>
+                <td>{{ baza_samolotow.liczbaPasazerow }}</td>
+            </tr>
+            <tr>
+                <th>Aktywny</th>
+                <td>{% if baza_samolotow.aktywny %}Yes{% else %}No{% endif %}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('baza_samolotow_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('baza_samolotow_edit', { 'id': baza_samolotow.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Baza_samolotow list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Marka</th>
+                <th>Model</th>
+                <th>Rocznikprodukcji</th>
+                <th>Pulap</th>
+                <th>Numerrej</th>
+                <th>Liczbapasazerow</th>
+                <th>Aktywny</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for baza_samolotow in baza_samolotows %}
+            <tr>
+                <td><a href="{{ path('baza_samolotow_show', { 'id': baza_samolotow.id }) }}">{{ baza_samolotow.id }}</a></td>
+                <td>{{ baza_samolotow.marka }}</td>
+                <td>{{ baza_samolotow.model }}</td>
+                <td>{{ baza_samolotow.rocznikProdukcji }}</td>
+                <td>{{ baza_samolotow.pulap }}</td>
+                <td>{{ baza_samolotow.numerRej }}</td>
+                <td>{{ baza_samolotow.liczbaPasazerow }}</td>
+                <td>{% if baza_samolotow.aktywny %}Yes{% else %}No{% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('baza_samolotow_show', { 'id': baza_samolotow.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('baza_samolotow_edit', { 'id': baza_samolotow.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('baza_samolotow_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+{% endblock %}

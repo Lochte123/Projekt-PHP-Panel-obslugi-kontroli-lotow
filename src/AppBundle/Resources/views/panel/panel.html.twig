@@ -1,11 +1,19 @@
-<h1>
+{% block title %}
+    <div style="color: #dadada">************************************************** Panel kontroli lotów **************************************************</div>
+{% endblock%}
 
-    <div style="color: #0088CC">************************************************** Panel kontroli lotów **************************************************</div>
+{% block body %}
+<h1>
     {{ form_start(form) }}
     {{ form_row(form.liniaLotnicza) }}
-    <button type="submit" style="background: chartreuse; color: #555555 ">SPRAWDŹ</button>
+    <button type="button" style="background: chartreuse; color: #555555 ">SPRAWDŹ</button>
     <div style="color: transparent">---------------------------------------------------------------------------------------------------------------------------------------------------------------------------</div>
     {{ form_row(form.panstwo) }}
-    <button type="submit" style="background: crimson;; color: #555555 ">SPRAWDŹ</button>
+    <button type="button" style="background: crimson;; color: #555555 ">SPRAWDŹ</button>
 
+    <body background="niebo.jpeg"></body>
+        <div style="color: transparent">---------------------------------------------------------------------------------------------------------------------------------------------------------------------------</div>
+    <center><img src="plane_anim.gif" alt="HTML5 Icon" width="128" height="128"></center>
+        {{ form_end(form) }}
 </h1>
+{% endblock %}

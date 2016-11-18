@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Linie lotnicze</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nazwa</th>
+                <th>Liczbasamolotow</th>
+                <th>Liczbapracownikow</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for linie_lotnicze in linie_lotniczes %}
+            <tr>
+                <td><a href="{{ path('linie_lotnicze_show', { 'id': linie_lotnicze.id }) }}">{{ linie_lotnicze.id }}</a></td>
+                <td>{{ linie_lotnicze.nazwa }}</td>
+                <td>{{ linie_lotnicze.liczbaSamolotow }}</td>
+                <td>{{ linie_lotnicze.liczbaPracownikow }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('linie_lotnicze_show', { 'id': linie_lotnicze.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('linie_lotnicze_edit', { 'id': linie_lotnicze.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('linie_lotnicze_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+{% endblock %}

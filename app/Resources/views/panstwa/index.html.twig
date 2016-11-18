@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Lista Panstw
+    </h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nazwa</th>
+                <th>Skrot</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for panstwa in panstwas %}
+            <tr>
+                <td><a href="{{ path('panstwa_show', { 'id': panstwa.id }) }}">{{ panstwa.id }}</a></td>
+                <td>{{ panstwa.nazwa }}</td>
+                <td>{{ panstwa.skrot }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('panstwa_show', { 'id': panstwa.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('panstwa_edit', { 'id': panstwa.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('panstwa_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+{% endblock %}
