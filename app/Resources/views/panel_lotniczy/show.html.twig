@@ -1,0 +1,73 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Panel_lotniczy</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <th></th>
+                <td>{{ panel_lotniczy.id }}</td>
+            </tr>
+            <tr>
+                <th>Linia</th>
+                <td>{{ panel_lotniczy.linia }}</td>
+            </tr>
+            <tr>
+                <th>Samolot</th>
+                <td>{{ panel_lotniczy.samolot }}</td>
+            </tr>
+            <tr>
+                <th>Krajwylot</th>
+                <td>{{ panel_lotniczy.krajWylot }}</td>
+            </tr>
+            <tr>
+                <th>Krajprzylot</th>
+                <td>{{ panel_lotniczy.krajPrzylot }}</td>
+            </tr>
+            <tr>
+                <th>Datawylot</th>
+                <td>{% if panel_lotniczy.dataWylot %}{{ panel_lotniczy.dataWylot|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Dataprzylot</th>
+                <td>{% if panel_lotniczy.dataPrzylot %}{{ panel_lotniczy.dataPrzylot|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Czaslotuoczekiwany</th>
+                <td>{% if panel_lotniczy.czasLotuOczekiwany %}{{ panel_lotniczy.czasLotuOczekiwany|date('H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Liczbapasazerow</th>
+                <td>{{ panel_lotniczy.liczbaPasazerow }}</td>
+            </tr>
+            <tr>
+                <th>Pilotglowny</th>
+                <td>{{ panel_lotniczy.pilotGlowny }}</td>
+            </tr>
+            <tr>
+                <th>Awaria</th>
+                <td>{% if panel_lotniczy.awaria %}Yes{% else %}No{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Lotbezpieczny</th>
+                <td>{% if panel_lotniczy.lotBezpieczny %}Yes{% else %}No{% endif %}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('panel_lotniczy_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('panel_lotniczy_edit', { 'id': panel_lotniczy.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

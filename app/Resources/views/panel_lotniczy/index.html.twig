@@ -1,0 +1,59 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>PANEL GLOWNY</h1>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Id - </th>
+                <th>Linia Lotnicza- </th>
+                <th>Samolot - </th>
+                <th>Wylot z - </th>
+                <th>Przylot do - </th>
+                <th>Data Wylotu - </th>
+                <th>Data Przylotu - </th>
+                <th>Czas przylotu- </th>
+                <th>Liczba pasazerow - </th>
+                <th>Pilot glowny - </th>
+                <th>Awaria - </th>
+                <th>Czy lot zagrozony? - </th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for panel_lotniczy in panel_lotniczies %}
+            <tr>
+                <td><a href="{{ path('panel_lotniczy_show', { 'id': panel_lotniczy.id }) }}">{{ panel_lotniczy.id }}</a></td>
+                <td>{{ panel_lotniczy.linia }}</td>
+                <td>{{ panel_lotniczy.samolot }}</td>
+                <td>{{ panel_lotniczy.krajWylot }}</td>
+                <td>{{ panel_lotniczy.krajPrzylot }}</td>
+                <td>{% if panel_lotniczy.dataWylot %}{{ panel_lotniczy.dataWylot|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if panel_lotniczy.dataPrzylot %}{{ panel_lotniczy.dataPrzylot|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if panel_lotniczy.czasLotuOczekiwany %}{{ panel_lotniczy.czasLotuOczekiwany|date('H:i:s') }}{% endif %}</td>
+                <td>{{ panel_lotniczy.liczbaPasazerow }}</td>
+                <td>{{ panel_lotniczy.pilotGlowny }}</td>
+                <td>{% if panel_lotniczy.awaria %}Yes{% else %}No{% endif %}</td>
+                <td>{% if panel_lotniczy.lotBezpieczny %}Yes{% else %}No{% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('panel_lotniczy_show', { 'id': panel_lotniczy.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('panel_lotniczy_edit', { 'id': panel_lotniczy.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('panel_lotniczy_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+{% endblock %}
