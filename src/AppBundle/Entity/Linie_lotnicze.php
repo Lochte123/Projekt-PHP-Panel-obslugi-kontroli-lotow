@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Linie_lotnicze
@@ -47,6 +48,14 @@ class Linie_lotnicze
      * @ORM\JoinColumn(name="panstwa_id", referencedColumnName="id")
      */
     protected $panstwa;
+    protected $panel_lotniczy;
+    /**
+     * Panstwa constructor.
+     */
+    public function __construct()
+    {
+        $this->panel_lotniczy = new ArrayCollection();
+    }
     /**
      * Get id
      *
@@ -175,5 +184,39 @@ class Linie_lotnicze
     public function getPanstwa()
     {
         return $this->panstwa;
+    }
+
+    /**
+     * Add panelLotniczy
+     *
+     * @param \AppBundle\Entity\Panel_lotniczy $panelLotniczy
+     *
+     * @return Linie_lotnicze
+     */
+    public function addPanelLotniczy(\AppBundle\Entity\Panel_lotniczy $panel_lotniczy)
+    {
+        $this->panel_lotniczy = $panel_lotniczy;
+
+        return $this;
+    }
+
+    /**
+     * Remove panelLotniczy
+     *
+     * @param \AppBundle\Entity\Panel_lotniczy $panelLotniczy
+     */
+    public function removePanelLotniczy(\AppBundle\Entity\Panel_lotniczy $panel_lotniczy)
+    {
+        $this->panel_lotniczy->removeElement($panel_lotniczy);
+    }
+
+    /**
+     * Get panelLotniczy
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getPanelLotniczy()
+    {
+        return $this->linieLotnicze;
     }
 }

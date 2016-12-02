@@ -1,48 +1,54 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>PANEL GLOWNY</h1>
+    <div id="rodzic">
+        <h1>
+             <span style="font-size: 35px" id="dziecko1">PANEL GLOWNY</span>
+        </h1>
+    </div>
 
     <table class="table table-striped">
         <thead>
             <tr>
-                <th>Id - </th>
-                <th>Linia Lotnicza- </th>
-                <th>Samolot - </th>
-                <th>Wylot z - </th>
-                <th>Przylot do - </th>
-                <th>Data Wylotu - </th>
-                <th>Data Przylotu - </th>
-                <th>Czas przylotu- </th>
-                <th>Liczba pasazerow - </th>
-                <th>Pilot glowny - </th>
-                <th>Awaria - </th>
-                <th>Czy lot zagrozony? - </th>
-                <th>Actions</th>
+                <div class="nowe">
+                <th style="font-size: large">Linia Lotnicza- </th>
+                </div>
+                <th style="font-size: large">Samolot - </th>
+                <th style="font-size: large">Wylot z - </th>
+                <th style="font-size: large">Przylot do - </th>
+                <th style="font-size: large">Data Wylotu - </th>
+                <th style="font-size: large">Data Przylotu - </th>
+                <th style="font-size: large">Czas przylotu- </th>
+                <th style="font-size: large">Liczba pasazerow - </th>
+                <th style="font-size: large">Pilot glowny - </th>
+                <th style="font-size: large">Awaria - </th>
+                <th style="font-size: large">Czy lot zagrozony? - </th>
+                <th style="font-size: large">Actions</th>
+
             </tr>
         </thead>
         <tbody>
         {% for panel_lotniczy in panel_lotniczies %}
             <tr>
                 <td><a href="{{ path('panel_lotniczy_show', { 'id': panel_lotniczy.id }) }}">{{ panel_lotniczy.id }}</a></td>
-                <td>{{ panel_lotniczy.linia }}</td>
-                <td>{{ panel_lotniczy.samolot }}</td>
-                <td>{{ panel_lotniczy.krajWylot }}</td>
-                <td>{{ panel_lotniczy.krajPrzylot }}</td>
-                <td>{% if panel_lotniczy.dataWylot %}{{ panel_lotniczy.dataWylot|date('Y-m-d H:i:s') }}{% endif %}</td>
-                <td>{% if panel_lotniczy.dataPrzylot %}{{ panel_lotniczy.dataPrzylot|date('Y-m-d H:i:s') }}{% endif %}</td>
-                <td>{% if panel_lotniczy.czasLotuOczekiwany %}{{ panel_lotniczy.czasLotuOczekiwany|date('H:i:s') }}{% endif %}</td>
-                <td>{{ panel_lotniczy.liczbaPasazerow }}</td>
-                <td>{{ panel_lotniczy.pilotGlowny }}</td>
-                <td>{% if panel_lotniczy.awaria %}Yes{% else %}No{% endif %}</td>
-                <td>{% if panel_lotniczy.lotBezpieczny %}Yes{% else %}No{% endif %}</td>
+                <td style="font-size: medium">{{ panel_lotniczy.linia }}</td>
+                <td style="font-size: medium">{{ panel_lotniczy.samolot }}</td>
+                <td style="font-size: medium">{{ panel_lotniczy.krajWylot }}</td>
+                <td style="font-size: medium">{{ panel_lotniczy.krajPrzylot }}</td>
+                <td style="font-size: medium">{% if panel_lotniczy.dataWylot %}{{ panel_lotniczy.dataWylot|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td style="font-size: medium">{% if panel_lotniczy.dataPrzylot %}{{ panel_lotniczy.dataPrzylot|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td style="font-size: medium">{% if panel_lotniczy.czasLotuOczekiwany %}{{ panel_lotniczy.czasLotuOczekiwany|date('H:i:s') }}{% endif %}</td>
+                <td style="font-size: medium">{{ panel_lotniczy.liczbaPasazerow }}</td>
+                <td style="font-size: medium">{{ panel_lotniczy.pilotGlowny }}</td>
+                <td style="font-size: medium">{% if panel_lotniczy.awaria %}Yes{% else %}No{% endif %}</td>
+                <td style="font-size: medium">{% if panel_lotniczy.lotBezpieczny %}Yes{% else %}No{% endif %}</td>
                 <td>
                     <ul>
                         <li>
-                            <a href="{{ path('panel_lotniczy_show', { 'id': panel_lotniczy.id }) }}">show</a>
+                            <a href="{{ path('panel_lotniczy_show', { 'id': panel_lotniczy.id }) }}" style="font-size: medium">Pokaz</a>
                         </li>
                         <li>
-                            <a href="{{ path('panel_lotniczy_edit', { 'id': panel_lotniczy.id }) }}">edit</a>
+                            <a href="{{ path('panel_lotniczy_edit', { 'id': panel_lotniczy.id }) }}" style="font-size: medium">Edytuj</a>
                         </li>
                     </ul>
                 </td>
@@ -50,10 +56,101 @@
         {% endfor %}
         </tbody>
     </table>
+    <style>
+
+
+    </style>
+
+    <ul>
+        <li data-tooltip="Znajdziesz tutaj zagadnienia dotyczące...">
+            <div class="menu">
+            <a href="{{ path('panel_lotniczy_new') }}"  style="font-size: medium">Utworz nowy lot</a>
+            </div>
+        </li>
+    </ul>
+    <ul>
+        <li>
+            <div class="menu">
+            <a href="#" style="font-size: medium" onclick="window.location.href='http://127.0.0.1:8000/baza_samolotow'" >Baza samolotow</a>
+            </div>
+        </li>
+    </ul>
+    <ul>
+        <li>
+            <div class="menu">
+                <a href="#" style="font-size: medium" onclick="window.location.href='http://127.0.0.1:8000/panstwa'" >Panstwa</a>
+            </div>
+        </li>
+    </ul>
 
     <ul>
         <li>
-            <a href="{{ path('panel_lotniczy_new') }}">Create a new entry</a>
+            <div class="menu">
+                <a href="#" style="font-size: medium" onclick="window.location.href='http://127.0.0.1:8000/linie_lotnicze'" >Linie lotnicze</a>
+            </div>
         </li>
     </ul>
+    <div id="tekst">
+        <p style="color: #ffd321; font-size: 20px;">Mapa lotow</p>
+    </div>
+
+<div id="radar">
+    <a href="http://aviateam.pl/mapa/radar/"><img src="https://upload.wikimedia.org/wikipedia/commons/8/88/Radar2.gif" alt="HTML5 Icon" width="185" height="185" border=0></a>
+</div>
+    <body>
+
+    <div id="blok">
+        <p>WITAJ! Obecnie obslugujesz ten panel jako gosc :)</p>
+    </div>
+    </body>
+
+
+    <script type="text/javascript">
+        var i, timer, dzielnik_czasu;
+        dzielnik_czasu = 1000;
+        i = 0;
+        function start()
+        {
+            timer = self.setInterval("przyrost()", (1000/dzielnik_czasu))
+        }
+        
+        function przyrost()
+        {
+            i++;
+            document.getElementById("timer_out").innerHTML = (i / dzielnik_czasu);
+        }
+
+        function stop()
+        {
+            clearInterval(timer);
+            timer = null;
+        }
+
+        function reset()
+        {
+            stop();
+            i = 0;
+            document.getElementById("timer_out").innerHTML = (i / dzielnik_czasu);
+        }
+
+    </script>
+
+    <div id="obok">
+    <body>
+    <span style="font-size: 18px" id = "timer_out">
+        0.00
+    </span>
+    <br/>
+    <br/>
+    <button style="font-size: 20px; color: #FFCC00; background-color: #461a4c" id="start_timer" onclick="start()">
+        Start
+    </button>
+    <button style="font-size: 20px; color: #FFCC00; background-color: darkslategray" id="stop_timer" onclick="stop()">
+        Stop
+    </button>
+    <button style="font-size: 20px; color: #FFCC00; background-color: #444444" id="reset_timer" onclick="reset()">
+        Reset
+    </button>
+    </body>
+    </div>
 {% endblock %}

@@ -1,31 +1,46 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Lista Panstw
+    <h1 style="font-size: 30px">Lista Panstw
     </h1>
 
+<div id="caly">
+    <div id="blok1">
+        <div id="blok_na_zawartosc">
+            <p id="zawartosc">
+                Tutaj sprawdzisz wspierane panstwa. Dodasz nowe i wyedytujesz. Baza panstw jest polaczona relacja z baza linii lotniczych.
+            </p>
+        </div>
+    </div>
+
+    <div id="blok2">
+        <div id="uchwyt">Pomoc</div>
+    </div>
+</div>
+
+<div id="nowy">
     <table>
         <thead>
             <tr>
-                <th>Id</th>
-                <th>Nazwa</th>
-                <th>Skrot</th>
-                <th>Actions</th>
+                <th style="font-size: large">Id</th>
+                <th style="font-size: large">Nazwa</th>
+                <th style="font-size: large">Skrot</th>
+                <th style="font-size: large">Actions</th>
             </tr>
         </thead>
         <tbody>
         {% for panstwa in panstwas %}
             <tr>
-                <td><a href="{{ path('panstwa_show', { 'id': panstwa.id }) }}">{{ panstwa.id }}</a></td>
-                <td>{{ panstwa.nazwa }}</td>
-                <td>{{ panstwa.skrot }}</td>
+                <td style="font-size: medium"><a href="{{ path('panstwa_show', { 'id': panstwa.id }) }}">{{ panstwa.id }}</a></td>
+                <td style="font-size: medium">{{ panstwa.nazwa }}</td>
+                <td style="font-size: medium">{{ panstwa.skrot }}</td>
                 <td>
                     <ul>
                         <li>
-                            <a href="{{ path('panstwa_show', { 'id': panstwa.id }) }}">show</a>
+                            <a href="{{ path('panstwa_show', { 'id': panstwa.id }) }}" style="font-size: large">Pokaz</a>
                         </li>
                         <li>
-                            <a href="{{ path('panstwa_edit', { 'id': panstwa.id }) }}">edit</a>
+                            <a href="{{ path('panstwa_edit', { 'id': panstwa.id }) }}" style="font-size: large">Edytuj</a>
                         </li>
                     </ul>
                 </td>
@@ -33,10 +48,15 @@
         {% endfor %}
         </tbody>
     </table>
-
+    <div/>
+<div id="powrot">
     <ul>
         <li>
-            <a href="{{ path('panstwa_new') }}">Create a new entry</a>
+            <a href="{{ path('panstwa_new') }}" style="font-size: large">Dodaj nowe panstwo</a>
+        </li>
+        <li>
+            <a href="{{ path('panel_lotniczy_index') }}" style="font-size:large">Powrot</a>
         </li>
     </ul>
+</div>
 {% endblock %}

@@ -1,40 +1,55 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Baza samolotow</h1>
+    <h1 style="font-size: x-large">Baza samolotow</h1>
 
+    <div id="caly">
+        <div id="blok1">
+            <div id="blok_na_zawartosc">
+                <p id="zawartosc">
+                    Tutaj sprawdzisz wszystkie dostepne samoloty. Dodasz nowe, usuniesz poprzednie, a takze zedytujesz obecne.
+                </p>
+            </div>
+        </div>
+
+        <div id="blok2">
+            <div id="uchwyt">Pomoc</div>
+        </div>
+    </div>
+
+<div id="nowy1">
     <table>
         <thead>
             <tr>
-                <th>Id</th>
-                <th>Marka</th>
-                <th>Model</th>
-                <th>Rocznikprodukcji</th>
-                <th>Pulap</th>
-                <th>Numerrej</th>
-                <th>Liczbapasazerow</th>
-                <th>Aktywny</th>
-                <th>Actions</th>
+                <th style="font-size: large">Id</th>
+                <th style="font-size: large">Marka</th>
+                <th style="font-size: large">Model</th>
+                <th style="font-size: large">Rocznikprodukcji</th>
+                <th style="font-size: large">Pulap</th>
+                <th style="font-size: large">Numerrej</th>
+                <th style="font-size: large">Liczbapasazerow</th>
+                <th style="font-size: large">Aktywny</th>
+                <th style="font-size: large">Actions</th>
             </tr>
         </thead>
         <tbody>
         {% for baza_samolotow in baza_samolotows %}
             <tr>
-                <td><a href="{{ path('baza_samolotow_show', { 'id': baza_samolotow.id }) }}">{{ baza_samolotow.id }}</a></td>
-                <td>{{ baza_samolotow.marka }}</td>
-                <td>{{ baza_samolotow.model }}</td>
-                <td>{{ baza_samolotow.rocznikProdukcji }}</td>
-                <td>{{ baza_samolotow.pulap }}</td>
-                <td>{{ baza_samolotow.numerRej }}</td>
-                <td>{{ baza_samolotow.liczbaPasazerow }}</td>
-                <td>{% if baza_samolotow.aktywny %}Yes{% else %}No{% endif %}</td>
+                <td style="font-size: medium"><a href="{{ path('baza_samolotow_show', { 'id': baza_samolotow.id }) }}">{{ baza_samolotow.id }}</a></td>
+                <td style="font-size: medium">{{ baza_samolotow.marka }}</td>
+                <td style="font-size: medium">{{ baza_samolotow.model }}</td>
+                <td style="font-size: medium">{{ baza_samolotow.rocznikProdukcji }}</td>
+                <td style="font-size: medium">{{ baza_samolotow.pulap }}</td>
+                <td style="font-size: medium">{{ baza_samolotow.numerRej }}</td>
+                <td style="font-size: medium">{{ baza_samolotow.liczbaPasazerow }}</td>
+                <td style="font-size: medium">{% if baza_samolotow.aktywny %}Yes{% else %}No{% endif %}</td>
                 <td>
                     <ul>
                         <li>
-                            <a href="{{ path('baza_samolotow_show', { 'id': baza_samolotow.id }) }}">show</a>
+                            <a href="{{ path('baza_samolotow_show', { 'id': baza_samolotow.id }) }}" style="font-size: large">Pokaz</a>
                         </li>
                         <li>
-                            <a href="{{ path('baza_samolotow_edit', { 'id': baza_samolotow.id }) }}">edit</a>
+                            <a href="{{ path('baza_samolotow_edit', { 'id': baza_samolotow.id }) }}" style="font-size: large">Edytuj</a>
                         </li>
                     </ul>
                 </td>
@@ -42,10 +57,16 @@
         {% endfor %}
         </tbody>
     </table>
+</div>
 
+    <div id="wroc">
     <ul>
         <li>
-            <a href="{{ path('baza_samolotow_new') }}">Create a new entry</a>
+            <a href="{{ path('baza_samolotow_new') }}" style="font-size: large">Dodaj nowy samolot</a>
+        </li>
+        <li>
+            <a href="{{ path('panel_lotniczy_index') }}" style="font-size:large">Powrot</a>
         </li>
     </ul>
+    </div>
 {% endblock %}

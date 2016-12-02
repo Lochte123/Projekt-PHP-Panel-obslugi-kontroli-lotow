@@ -1,16 +1,18 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Dodaj nowy samolot</h1>
-
+    <h1 style="font-size: 30px">Dodaj nowy samolot</h1>
+<div id="nowy">
     {{ form_start(form) }}
         {{ form_widget(form) }}
-        <input type="submit" value="Create" />
+        <input type="submit" value="Utworz" />
     {{ form_end(form) }}
-
+<div/>
+    <div id="powrot">
     <ul>
         <li>
-            <a href="{{ path('baza_samolotow_index') }}">Back to the list</a>
+            <a href="{{ path('baza_samolotow_index') }}" style="font-size:medium">Powrot</a>
         </li>
     </ul>
+    </div>
 {% endblock %}

@@ -1,21 +1,23 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Panel_lotniczy edit</h1>
-
+    <h1 style="font-size: 30px">Edycja lotu</h1>
+<div id="nowy">
     {{ form_start(edit_form) }}
         {{ form_widget(edit_form) }}
-        <input type="submit" value="Edit" />
+        <input type="submit" value="Edytuj" />
     {{ form_end(edit_form) }}
-
+</div>
+    <div id="wroc">
     <ul>
         <li>
-            <a href="{{ path('panel_lotniczy_index') }}">Back to the list</a>
+            <a href="{{ path('panel_lotniczy_index') }}" style="font-size:medium">Powrot</a>
         </li>
         <li>
             {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
+                <input type="submit" value="Usun">
             {{ form_end(delete_form) }}
         </li>
     </ul>
+    <div/>
 {% endblock %}

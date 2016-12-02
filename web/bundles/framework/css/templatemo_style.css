@@ -10,17 +10,17 @@ body{
 	font-size: 11px;
 	font-family: Arial, Helvetica, sans-serif;
 }
-a:link, a:visited { color: #621c03; text-decoration: none; font-weight: bold;} 
-a:active, a:hover { color: #621c03; text-decoration: none; font-weight: bold; }
+a:link, a:visited { color: #9d7b47; text-decoration: none; font-weight: bold;}
+a:active, a:hover { color: #fdfff2; text-decoration: none; font-weight: bold; }
 
 h1 {
-	font-size: 18px;
-	color: #782609;
+	font-size: 22px;
+	color: #78100d;
 	font-weight: bold;
-	background: url(images/templatemo_h1.jpg) no-repeat;
-	height: 27px;
-	padding-top: 40px;
-	padding-left: 70px;
+	background: url(images/plaza.jpg) no-repeat;
+	height: 240px;
+	padding-top: 160px;
+	padding-left: 1450px;
 }
 
 h2 {
@@ -31,6 +31,11 @@ h2 {
 	padding-top: 3px;
 	padding-left: 5px;
 	background: url(images/templatemo_h2.jpg) no-repeat;
+}
+
+.n1
+{
+	padding-left: 1000px;
 }
 
 #templatemo_maincontainer{
@@ -160,4 +165,250 @@ h2 {
 	border-bottom: dotted 1px #782609;
 }
 
+.menu
+{
+	padding-left: 30px;
+	padding-top: 40px;
+}
+
+.nowe
+{
+	font-size: 16px;
+	padding-top: 20px;
+	padding-left: 20px;
+
+}
+
+#blok {
+	position:relative;
+	top: 60px;
+	left: 140px;
+	width:250px;
+	height:2.2em;
+	line-height:2.2em;
+	margin:0 auto;
+	border:3px solid #DDD;
+	font-size:1.5em;
+	color: khaki;
+	background-color: transparent;
+	overflow:hidden;
+}
+
+#blok > p {
+	position:absolute;
+	margin:0;
+	white-space:nowrap;
+	animation:przesun 30s linear infinite;
+	-webkit-animation:przesun 30s linear infinite;
+}
+
+@keyframes przesun
+{
+	0% { transform:translateX(0); }
+	100% { transform:translateX(-100%); }
+}
+
+#rodzic {
+	margin:0 auto;
+	text-align:center;
+}
+
+#rodzic > span {
+	display:block;
+	float:left;
+	width:40px;
+	line-height:40px;
+	margin:0 5px;
+	border-radius:6px;
+	animation:animowany_tekst 5s linear infinite;
+	-webkit-animation:animowany_tekst 5s linear infinite;
+}
+
+#rodzic > #dziecko1 {
+	animation-delay:250ms;
+	-webkit-animation-delay:250ms;
+}
+
+#rodzic > #dziecko2 {
+	animation-delay:500ms;
+	-webkit-animation-delay:500ms;
+}
+
+#rodzic > #dziecko3 {
+	animation-delay:750ms;
+	-webkit-animation-delay:750ms;
+}
+
+#rodzic > #dziecko4 {
+	animation-delay:1000ms;
+	-webkit-animation-delay:1000ms;
+}
+
+#rodzic > #dziecko5 {
+	animation-delay:1250ms;
+	-webkit-animation-delay:1250ms;
+}
+
+#rodzic > #dziecko6 {
+	animation-delay:1500ms;
+	-webkit-animation-delay:1500ms;
+}
+
+#rodzic > #dziecko7 {
+	animation-delay:1750ms;
+	-webkit-animation-delay:1750ms;
+}
+
+#rodzic > #dziecko8 {
+	animation-delay:2000ms;
+	-webkit-animation-delay:2000ms;
+}
+
+#rodzic > #dziecko9 {
+	animation-delay:2250ms;
+	-webkit-animation-delay:2250ms;
+}
+
+#rodzic > #dziecko10 {
+	animation-delay:2500ms;
+	-webkit-animation-delay:2500ms;
+}
+#rodzic > #dziecko11 {
+	animation-delay:2750ms;
+	-webkit-animation-delay:2750ms;
+}
+#rodzic > #dziecko12 {
+	animation-delay:3000ms;
+	-webkit-animation-delay:3000ms;
+}
+
+/*------------------------ANIMACJA------------------------*/
+@keyframes animowany_tekst
+{
+	0% {transform:rotate(0deg);}
+	10% {transform:rotate(360deg);}
+	100% {transform:rotate(360deg);}
+}
+
+@-webkit-keyframes animowany_tekst
+{
+	0% {-webkit-transform:rotate(0deg);}
+	10% {-webkit-transform:rotate(360deg);}
+	100% {-webkit-transform:rotate(360deg);}
+}
+
 .post_date { color: #177212; }
+
+#caly {
+	padding-top: 10px;
+	width:330px;
+	line-height:50px;
+	position:fixed;
+	left:-270px;
+	transition:1s;
+	-webkit-transition:1s;
+}
+
+#caly:hover {
+	left:0;
+}
+
+#blok1 {
+	float:left;
+	width:270px;
+}
+
+#blok2 {
+	float:left;
+	width:60px;
+}
+
+#blok_na_zawartosc {
+	background-color: #fd870b;
+	border:3px solid #461a4c;
+	border-left:none;
+	border-bottom-right-radius:6px;
+}
+
+#zawartosc {
+	margin:0;
+	padding:5px;
+	height:150px;
+	overflow:auto;
+}
+
+#uchwyt {
+	text-align:center;
+	font-weight:bold;
+	color:#FFF;
+	background-color: #461a4c;
+	border-radius:0 6px 6px 0;
+}
+
+#uchwyt:hover {
+	cursor:pointer;
+}
+#nowy
+{
+	padding-left: 700px;
+	padding-top: 10px;
+}
+#nowy1
+{
+	padding-left: 550px;
+	padding-top: 10px;
+}
+
+#nowy2
+{
+	padding-left: 800px;
+	padding-top: 10px;
+}
+
+#wroc
+{
+	padding-left: 850px;
+	padding-top: 30px;
+}
+#inneklawisze
+{
+	padding-left: 810px;
+	padding-top: 30px;
+}
+
+#powrot
+{
+	padding-left: 100px;
+	padding-top: 10px;
+}
+
+#powrot1
+{
+	padding-left: 80px;
+	padding-top: 10px;
+}
+
+#radar
+{
+	position: relative;
+	top: -120px;
+	left: 25px;
+	float: right;
+
+}
+
+#obok
+{
+	position: relative;
+	top: -400px;
+	left: 200px;
+	float: right;
+}
+
+#tekst
+{
+	position: relative;
+	top: -190px;
+	left: -120px;
+	float: right;
+}

@@ -1,32 +1,45 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Linie lotnicze</h1>
+    <h1 style="font-size: 30px">Linie lotnicze</h1>
+<div id="caly">
+    <div id="blok1">
+        <div id="blok_na_zawartosc">
+            <p id="zawartosc">
+                Tutaj sprawdzisz dostepne linie lotnicze. Dodasz nowe, wyedytujesz, wyszukasz. Tabela powiazana z tabela panstw.
+            </p>
+        </div>
+    </div>
 
+    <div id="blok2">
+        <div id="uchwyt">Pomoc</div>
+    </div>
+</div>
+<div id="nowy">
     <table>
         <thead>
             <tr>
-                <th>Id</th>
-                <th>Nazwa</th>
-                <th>Liczbasamolotow</th>
-                <th>Liczbapracownikow</th>
-                <th>Actions</th>
+                <th style="font-size: large">Id</th>
+                <th style="font-size: large">Nazwa</th>
+                <th style="font-size: large">Liczbasamolotow</th>
+                <th style="font-size: large">Liczbapracownikow</th>
+                <th style="font-size: large">Actions</th>
             </tr>
         </thead>
         <tbody>
         {% for linie_lotnicze in linie_lotniczes %}
             <tr>
-                <td><a href="{{ path('linie_lotnicze_show', { 'id': linie_lotnicze.id }) }}">{{ linie_lotnicze.id }}</a></td>
-                <td>{{ linie_lotnicze.nazwa }}</td>
-                <td>{{ linie_lotnicze.liczbaSamolotow }}</td>
-                <td>{{ linie_lotnicze.liczbaPracownikow }}</td>
+                <td style="font-size: medium"><a href="{{ path('linie_lotnicze_show', { 'id': linie_lotnicze.id }) }}">{{ linie_lotnicze.id }}</a></td>
+                <td style="font-size: medium">{{ linie_lotnicze.nazwa }}</td>
+                <td style="font-size: medium">{{ linie_lotnicze.liczbaSamolotow }}</td>
+                <td style="font-size: medium">{{ linie_lotnicze.liczbaPracownikow }}</td>
                 <td>
                     <ul>
                         <li>
-                            <a href="{{ path('linie_lotnicze_show', { 'id': linie_lotnicze.id }) }}">show</a>
+                            <a href="{{ path('linie_lotnicze_show', { 'id': linie_lotnicze.id }) }}" style="font-size: large">Pokaz</a>
                         </li>
                         <li>
-                            <a href="{{ path('linie_lotnicze_edit', { 'id': linie_lotnicze.id }) }}">edit</a>
+                            <a href="{{ path('linie_lotnicze_edit', { 'id': linie_lotnicze.id }) }}" style="font-size: large">Edytuj</a>
                         </li>
                     </ul>
                 </td>
@@ -34,10 +47,15 @@
         {% endfor %}
         </tbody>
     </table>
-
+    <div/>
+    <div id="powrot">
     <ul>
         <li>
-            <a href="{{ path('linie_lotnicze_new') }}">Create a new entry</a>
+            <a href="{{ path('linie_lotnicze_new') }}" style="font-size: large">Nowa linia lotnicza</a>
+        </li>
+        <li>
+            <a href="{{ path('panel_lotniczy_index') }}" style="font-size:large">Powrot</a>
         </li>
     </ul>
+        <div/>
 {% endblock %}

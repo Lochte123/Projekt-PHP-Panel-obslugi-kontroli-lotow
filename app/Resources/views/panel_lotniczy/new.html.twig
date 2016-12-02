@@ -1,17 +1,36 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Dodaj nowa obsluge lotu</h1>
+    <h1 style="font-size: 30px">Dodaj nowa obsluge lotu</h1>
+    <body>
 
+    <div id="caly">
+        <div id="blok1">
+            <div id="blok_na_zawartosc">
+                <p id="zawartosc">
+                    Tutaj możesz dodać nowy lot do panelu obslugi. Wybierz wszystkie konieczne parametry lotu.
+                </p>
+            </div>
+        </div>
+
+        <div id="blok2">
+            <div id="uchwyt">Pomoc</div>
+        </div>
+    </div>
+<div id="nowy">
     {{ form_start(form) }}
-    <p style="color: transparent">---------------------------------------------------------------------------------------------------------------------------------------------------------------------------</p>
         {{ form_widget(form) }}
-        <input type="submit" value="Create" />
+        <input type="submit" value="Utworz" />
     {{ form_end(form) }}
+</div>
 
+
+    </body>
+<div id="wroc">
     <ul>
         <li>
-            <a href="{{ path('panel_lotniczy_index') }}">Back to the list</a>
+            <a href="{{ path('panel_lotniczy_index') }}"style="font-size:25px">Powrot</a>
         </li>
     </ul>
+</div>
 {% endblock %}

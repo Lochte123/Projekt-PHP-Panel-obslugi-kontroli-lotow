@@ -3,49 +3,52 @@
 {% block body %}
     <h1>Baza_samolotow</h1>
 
+<div id="nowy">
     <table>
         <tbody>
             <tr>
-                <th>Id</th>
-                <td>{{ baza_samolotow.id }}</td>
+                <th style="font-size: large">Id</th>
+                <td style="font-size: medium">{{ baza_samolotow.id }}</td>
             </tr>
             <tr>
-                <th>Marka</th>
-                <td>{{ baza_samolotow.marka }}</td>
+                <th style="font-size: large">Marka</th>
+                <td style="font-size: medium">{{ baza_samolotow.marka }}</td>
             </tr>
             <tr>
-                <th>Model</th>
-                <td>{{ baza_samolotow.model }}</td>
+                <th style="font-size: large">Model</th>
+                <td style="font-size: medium">{{ baza_samolotow.model }}</td>
             </tr>
             <tr>
-                <th>Rocznikprodukcji</th>
-                <td>{{ baza_samolotow.rocznikProdukcji }}</td>
+                <th style="font-size: large">Rocznikprodukcji</th>
+                <td style="font-size: medium">{{ baza_samolotow.rocznikProdukcji }}</td>
             </tr>
             <tr>
-                <th>Pulap</th>
-                <td>{{ baza_samolotow.pulap }}</td>
+                <th style="font-size: large">Pulap</th>
+                <td style="font-size: medium">{{ baza_samolotow.pulap }}</td>
             </tr>
             <tr>
-                <th>Numerrej</th>
-                <td>{{ baza_samolotow.numerRej }}</td>
+                <th style="font-size: large">Numerrej</th>
+                <td style="font-size: medium"{{ baza_samolotow.numerRej }}</td>
             </tr>
             <tr>
-                <th>Liczbapasazerow</th>
-                <td>{{ baza_samolotow.liczbaPasazerow }}</td>
+                <th style="font-size: large">Liczbapasazerow</th>
+                <td style="font-size: medium">{{ baza_samolotow.liczbaPasazerow }}</td>
             </tr>
             <tr>
-                <th>Aktywny</th>
-                <td>{% if baza_samolotow.aktywny %}Yes{% else %}No{% endif %}</td>
+                <th style="font-size: large">Aktywny</th>
+                <td style="font-size: medium">{% if baza_samolotow.aktywny %}Yes{% else %}No{% endif %}</td>
             </tr>
         </tbody>
     </table>
+    <div/>
 
+    <div id="powrot1">
     <ul>
         <li>
-            <a href="{{ path('baza_samolotow_index') }}">Back to the list</a>
+            <a href="{{ path('baza_samolotow_index') }}" style="font-size: medium">Powrot</a>
         </li>
         <li>
-            <a href="{{ path('baza_samolotow_edit', { 'id': baza_samolotow.id }) }}">Edit</a>
+            <a href="{{ path('baza_samolotow_edit', { 'id': baza_samolotow.id }) }}" style="font-size: medium">Edytuj</a>
         </li>
         <li>
             {{ form_start(delete_form) }}
@@ -53,4 +56,5 @@
             {{ form_end(delete_form) }}
         </li>
     </ul>
+    </div>
 {% endblock %}

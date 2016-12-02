@@ -98,6 +98,7 @@ class Panel_lotniczy
      */
     private $lotBezpieczny;
 
+    protected $linieLotnicze;
 
     /**
      * Get id
@@ -371,6 +372,29 @@ class Panel_lotniczy
     public function getLotBezpieczny()
     {
         return $this->lotBezpieczny;
+    }
+    /**
+     * Set panstwa
+     *
+     * @param \AppBundle\Entity\Linie_lotnicze $linieLotnicze
+     *
+     * @return Panel_lotniczy
+     */
+    public function setLinielotnicze(\AppBundle\Entity\Linie_lotnicze $linie_lotnicze = null)
+    {
+        $this->linieLotnicze = $linie_lotnicze;
+
+        return $this;
+    }
+
+    /**
+     * Get panstwa
+     *
+     * @return \AppBundle\Entity\Linie_lotnicze
+     */
+    public function getLinielotnicze()
+    {
+        return $this->linieLotnicze;
     }
 }
 
