@@ -6,7 +6,8 @@ body{
 	margin:0;
 	padding:0;
 	line-height: 1.5em;
-	background: #782609 url(images/templatemo_body_bg.jpg) repeat-x;
+	text-shadow: 0 0 6px #8762de;
+	background-image: radial-gradient(#bd4c0a, #2e055d);
 	font-size: 11px;
 	font-family: Arial, Helvetica, sans-serif;
 }
@@ -188,6 +189,7 @@ h2 {
 	line-height:2.2em;
 	margin:0 auto;
 	border:3px solid #DDD;
+	border-radius:6px 12px 18px 24px;
 	font-size:1.5em;
 	color: khaki;
 	background-color: transparent;
@@ -324,8 +326,8 @@ h2 {
 }
 
 #blok_na_zawartosc {
-	background-color: #fd870b;
-	border:3px solid #461a4c;
+	background-color: #ff8214;
+	border:3px solid #fdf005;
 	border-left:none;
 	border-bottom-right-radius:6px;
 }
@@ -340,8 +342,8 @@ h2 {
 #uchwyt {
 	text-align:center;
 	font-weight:bold;
-	color:#FFF;
-	background-color: #461a4c;
+	color: #6b1d89;
+	background-color: #fffe15;
 	border-radius:0 6px 6px 0;
 }
 
@@ -394,7 +396,12 @@ h2 {
 	top: -120px;
 	left: 25px;
 	float: right;
-
+	animation:Animacja 4s linear infinite;
+}
+@keyframes Animacja
+{
+	0% { transform:rotateY(0); }
+	100% { transform:rotateY(360deg); }
 }
 
 #obok
@@ -403,6 +410,7 @@ h2 {
 	top: -400px;
 	left: 200px;
 	float: right;
+
 }
 
 #tekst
@@ -411,4 +419,17 @@ h2 {
 	top: -190px;
 	left: -120px;
 	float: right;
+}
+
+#okragle
+{
+	border-top-left-radius:6px;
+	border-top-right-radius:12px;
+	border-bottom-right-radius:18px;
+	border-bottom-left-radius:24px;
+}
+
+#kursor
+{
+	cursor: url("http://downloads.totallyfreecursors.com/thumbnails/airplane1.gif"), pointer;
 }

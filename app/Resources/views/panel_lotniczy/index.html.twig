@@ -23,7 +23,7 @@
                 <th style="font-size: large">Pilot glowny - </th>
                 <th style="font-size: large">Awaria - </th>
                 <th style="font-size: large">Czy lot zagrozony? - </th>
-                <th style="font-size: large">Actions</th>
+                <th style="font-size: large">Akcja</th>
 
             </tr>
         </thead>
@@ -107,40 +107,73 @@
 
     <script type="text/javascript">
         var i, timer, dzielnik_czasu;
+        var t = null;
+        var czas;
+        var alarm = "<embed src='web/railroad_crossing_bell.mp3' />"
         dzielnik_czasu = 1000;
         i = 0;
         function start()
         {
-            timer = self.setInterval("przyrost()", (1000/dzielnik_czasu))
+            var minuty = (document.getElementById ("minuta").value);
+            var sekundy = (document.getElementById ("sekunda").value);
+            minuty = parseInt(minuty);
+            sekundy = parseInt(sekundy);
+
+            czas = (minuty * 60 + sekundy);
+
+            if(czas > 0)
+            {
+                czas -= 1;
+                minuty = parseInt(czas / 60);
+                sekundy = czas % 60;
+                document.getElementById ("minuta").value=minuty;
+                document.getElementById("sekunda").value=sekundy;
+                document.getElementById ("minuta").readOnly=true;
+                document.getElementById ("sekunda").readOnly=true;
+
+                var startB = document.getElementById("start_timer");
+                startB.disabled= true;
+            }
+            t = setTimeout('start()', 1000);
+            if(czas == 0)
+            {
+                clearTimeout(t);
+                document.getElementById("start").innerHTML = alarm;
+            }
+
+
         }
         
-        function przyrost()
+  /*      function przyrost()
         {
             i++;
             document.getElementById("timer_out").innerHTML = (i / dzielnik_czasu);
-        }
+        }*/
 
         function stop()
         {
-            clearInterval(timer);
-            timer = null;
+            clearInterval(t);
+            t = null;
         }
 
         function reset()
         {
-            stop();
-            i = 0;
-            document.getElementById("timer_out").innerHTML = (i / dzielnik_czasu);
+            clearTimeout(t);
+            document.getElementById ("minuta").readOnly=false;
+            document.getElementById ("sekunda").readOnly=false;
+            document.getElementById('start_timer').disabled=false;
+            document.getElementById ("minuta").value=0;
+            document.getElementById('sekunda').value=0;
         }
 
     </script>
 
     <div id="obok">
     <body>
-    <span style="font-size: 18px" id = "timer_out">
-        0.00
+    <span style="font-size: 19px">
+        <input  id="minuta" size="5" value="0"/>
+        <input  id="sekunda" size="5" value="0" />
     </span>
-    <br/>
     <br/>
     <button style="font-size: 20px; color: #FFCC00; background-color: #461a4c" id="start_timer" onclick="start()">
         Start
